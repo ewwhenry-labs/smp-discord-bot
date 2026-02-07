@@ -1,0 +1,21 @@
+networks:
+  postgres_backend:
+    external: true
+  
+services:
+  discord-bot:
+    container_name: SMP-discord-bot
+    image: smp-discord-bot:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - postgres_backend
+    env_file:
+      - .env
+    
+
+    
