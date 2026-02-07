@@ -5,6 +5,7 @@ import fs from "node:fs";
 
 import { BASE_DIR } from "../config.js";
 import logger from "../utils/logger.js";
+import { shouldIUpdateCommands } from "../utils/misc.js";
 
 export class ExtendedClient extends Client {
   public commands: Map<string, any> = new Map();
@@ -32,5 +33,30 @@ export class ExtendedClient extends Client {
       );
     }
   }
-  private async registerCommands() {}
+  private async registerCommands() {
+    const commandsPath = path.join(BASE_DIR, "commands");
+    const commandFiles = fs.globSync(path.join(commandsPath, "**/*.{ts,js}"));
+
+    this.logger.info(
+      `Registring commands... (${commandFiles.length} command files found)`,
+    );
+    for (const file of commandFiles) {
+      const commandFile = await import(file);
+      const command = new commandFile.default();
+
+      this.logger.info(`Command ${command.data.name} registered`);
+      this.commands.set(command.data.name, command);
+    }
+  }
+
+  public async uploadCommands() {
+    if (shouldIUpdateCommands(this)) {
+      this.logger.info("Uploading commands...");
+      this.application?.commands
+        .set(Array.from(this.commands.values()).map((cmd) => cmd.data))
+        .then(() => {
+          this.logger.info("Commands uploaded!");
+        });
+    }
+  }
 }

@@ -5,5 +5,6 @@ export default defineEvent({
   once: false,
   run: (client) => {
     client.logger.info(`Logged in as ${client.user?.tag}!`);
+    client.uploadCommands();
   },
 });
