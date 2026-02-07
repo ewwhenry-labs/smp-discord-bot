@@ -1,5 +1,4 @@
 import {
-  ActionRow,
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
@@ -7,9 +6,7 @@ import {
   ContainerBuilder,
   InteractionContextType,
   MessageFlags,
-  SectionBuilder,
   TextDisplayBuilder,
-  ThumbnailBuilder,
 } from "discord.js";
 import { Command } from "../../classes/Command.js";
 import { ExtendedClient } from "../../classes/ExtendedClient.js";

@@ -23,8 +23,8 @@ export default class PingCommand extends Command {
     const platform = os.platform(); // 'linux', 'darwin', 'win32'
     const arch = os.arch(); // 'x64', 'arm64', 'arm'
     const OS = os.type(); // 'Linux', 'Darwin', 'Windows_NT'
-    const kernel = os.release(); // versión del kernel
-    const hostname = os.hostname(); // nombre del host
+    // const _kernel = os.release(); // versión del kernel
+    // const _hostname = os.hostname(); // nombre del host
 
     const totalmem = os.totalmem(); // bytes totales
     const freemem = os.freemem(); // bytes libres
