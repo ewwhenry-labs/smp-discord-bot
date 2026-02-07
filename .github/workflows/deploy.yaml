@@ -13,9 +13,10 @@ jobs:
 
       - name: Create .env file
         run: |
-          touch .env
-          echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> .env
-          echo NODE_ENV=production >> .env
+          cat <<EOF > .env
+          NODE_ENV=production
+          BOT_TOKEN=${{ secrets.BOT_TOKEN }}
+          EOF
     
       - name: Deploy to Docker
         run: |

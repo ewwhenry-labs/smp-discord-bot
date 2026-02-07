@@ -5,6 +5,8 @@
     "module": "nodenext",
     "target": "esnext",
 
+    "moduleResolution": "nodenext",
+
     "lib": ["esnext"],
     "types": ["node"],
 
