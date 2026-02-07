@@ -24,6 +24,7 @@ export default class PingCommand extends Command {
     _client: ExtendedClient,
     intreaction: ChatInputCommandInteraction,
   ) {
+    await intreaction.deferReply();
     const components = [
       new ContainerBuilder().addTextDisplayComponents(
         new TextDisplayBuilder().setContent(
@@ -111,7 +112,7 @@ Reglas
       ),
     ];
 
-    intreaction.reply({
+    await intreaction.editReply({
       components,
       flags: MessageFlags.IsComponentsV2,
     });

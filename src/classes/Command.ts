@@ -18,7 +18,7 @@ export class Command {
     intreaction: ChatInputCommandInteraction,
   ) {
     client.logger.info(`Executing command ${intreaction.commandName}`);
-    await intreaction.reply({
+    await intreaction.editReply({
       content: "Hello World!\n-# This command is not implemented yet.",
     });
   }

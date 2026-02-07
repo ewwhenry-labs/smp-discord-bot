@@ -20,6 +20,7 @@ export default class PingCommand extends Command {
     _client: ExtendedClient,
     intreaction: ChatInputCommandInteraction,
   ) {
+    await intreaction.deferReply();
     const platform = os.platform(); // 'linux', 'darwin', 'win32'
     const arch = os.arch(); // 'x64', 'arm64', 'arm'
     const OS = os.type(); // 'Linux', 'Darwin', 'Windows_NT'
@@ -40,7 +41,7 @@ export default class PingCommand extends Command {
     const uptime = os.uptime(); // segundos encendido
     const humanUptime = secondsToHuman(uptime); // tiempo en humano
 
-    intreaction.reply({
+    intreaction.editReply({
       content: `
 ### Información del sistema
 > - **💻 Plataforma**: ${platform}
