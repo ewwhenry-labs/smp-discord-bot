@@ -17,7 +17,9 @@ export default defineEvent({
     if (!guildConfig) return;
 
     if (buttonId.startsWith("tickets:")) {
-      await interaction.deferReply();
+      await interaction.deferReply({
+        flags: MessageFlags.Ephemeral,
+      });
       if (!guildConfig.ticketsParentChannelId) return;
       const ticketSystem = new Tickets(
         interaction.guildId,
@@ -30,9 +32,8 @@ export default defineEvent({
         category: category as Category,
       });
 
-      await interaction.reply({
+      await interaction.editReply({
         content: `:tickets: Ticket creado con éxito en el canal <#${ticket.channelId}>`,
-        flags: MessageFlags.Ephemeral,
       });
     }
   },
