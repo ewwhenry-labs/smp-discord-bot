@@ -9,7 +9,7 @@ RUN corepack enable
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-
+RUN pnpm prisma generate
 RUN pnpm build
 
 FROM node:22-slim as runner
