@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model GuildConfig {
+  id      Int    @id @default(autoincrement())
+  guildId String @unique
+
+  ticketsParentChannelId String?
+}
+
+model Ticket {
+  id      Int    @id @default(autoincrement())
+  humanId String @unique @default(nanoid(6))
+
+  category      Category
+  openerId      String
+  responsableId String?
+  state         State    @default(PENDING)
+
+  channelId String
+
+  createdAt DateTime @default(now())
+}
+
+enum State {
+  PENDING
+  OPEN
+  DISCARDED
+  SOLVED
+}
+
+enum Category {
+  DUDA
+  REPORTE_USUARIO
+  REPORTE_STAFF
+  REPORTE_BUG
+  CREADOR
+  RECUPERACION_CUENTA
+  APELANCION_BAN
+  SOS
+  COMPRA_EXCLUSIVA
+  COMPRA_DROIDS
+}

@@ -68,45 +68,45 @@ Reglas
       ),
       new ActionRowBuilder<ButtonBuilder>().addComponents(
         new ButtonBuilder()
-          .setCustomId("dudas")
+          .setCustomId("tickets:DUDA")
           .setEmoji("ℹ️")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("reportar_usuario")
+          .setCustomId("tickets:REPORTE_USUARIO")
           .setEmoji("📁")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("reportar_staff")
+          .setCustomId("tickets:REPORTE_STAFF")
           .setEmoji("📋")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("reportar_bug")
+          .setCustomId("tickets:REPORTE_BUG")
           .setEmoji("🔩")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("creador_de_contenido")
+          .setCustomId("tickets:CREADOR")
           .setEmoji("📺")
           .setStyle(ButtonStyle.Primary),
       ),
       new ActionRowBuilder<ButtonBuilder>().addComponents(
         new ButtonBuilder()
-          .setCustomId("recuperar_cuenta")
+          .setCustomId("tickets:RECUPERACION_CUENTA")
           .setEmoji("💾")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("apelar_ban")
+          .setCustomId("tickets:APELANCION_BAN")
           .setEmoji("📛")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("soporte_global")
+          .setCustomId("tickets:SOS")
           .setEmoji("🆘")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("compra_exclusiva")
+          .setCustomId("tickets:COMPRA_EXCLUSIVA")
           .setEmoji("🏆")
           .setStyle(ButtonStyle.Primary),
         new ButtonBuilder()
-          .setCustomId("comprar_droids")
+          .setCustomId("tickets:COMPRA_DROIDS")
           .setEmoji("💎")
           .setStyle(ButtonStyle.Primary),
       ),
