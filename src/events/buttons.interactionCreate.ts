@@ -17,6 +17,7 @@ export default defineEvent({
     if (!guildConfig) return;
 
     if (buttonId.startsWith("tickets:")) {
+      await interaction.deferReply();
       if (!guildConfig.ticketsParentChannelId) return;
       const ticketSystem = new Tickets(
         interaction.guildId,
