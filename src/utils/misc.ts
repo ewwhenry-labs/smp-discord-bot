@@ -10,7 +10,7 @@ export function shouldIUpdateCommands(client: ExtendedClient) {
 
   const actual_hash = crypto
     .createHash("sha256")
-    .update(JSON.stringify(client.commands.values()))
+    .update(JSON.stringify(client.commands.values().map((c) => c.data)))
     .digest("hex");
 
   if (previous_hash !== actual_hash) {

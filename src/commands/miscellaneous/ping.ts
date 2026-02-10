@@ -1,12 +1,6 @@
 import {
-  ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
   ChatInputCommandInteraction,
-  ContainerBuilder,
   InteractionContextType,
-  MessageFlags,
-  TextDisplayBuilder,
 } from "discord.js";
 import { Command } from "../../classes/Command.js";
 import { ExtendedClient } from "../../classes/ExtendedClient.js";
@@ -25,96 +19,8 @@ export default class PingCommand extends Command {
     intreaction: ChatInputCommandInteraction,
   ) {
     await intreaction.deferReply();
-    const components = [
-      new ContainerBuilder().addTextDisplayComponents(
-        new TextDisplayBuilder().setContent(
-          `# :tickets: Tickets\n### Selecciona una categoria`,
-        ),
-      ),
-      new ContainerBuilder().addTextDisplayComponents(
-        new TextDisplayBuilder().setContent(`
-### ℹ️ · Dudas
-> **·:?:»** Necesitas 🚩resolver tus ❔dudas.
- 
-### 📁 · Reportar usuario
-> **·:?:»** Reporta a un 👤usuario que ha incumplido las 
-Reglas 
-
-### 📋 · Reportar staff
-> **·:?:»** Reporta a un 👨‍💻staff que ⛔no está haciendo lo correcto.
-
-### 🔩 · Reportar Bug
-> **·:?:»** Reporta ⚠️errores de :SampDroid:SampDroid.
-
-### 📺 · Creador de Contenido
-> **·:?:»** Reclama 🎁recompensa como creador de contenido.
-
-### 💾 · Recuperar Cuenta
-> **·:?:»** Recupera una 👤cuenta por 📧correo.
-> - Formas de recuperar cuenta:
-> - Pulsa en 💾 para cambiar tu contraseña.
-
-### 📛 · Apelar Ban
-> **·:?:»** ¿🚯Baneado injustamente o 2️⃣segunda oportunidad?
-
-### 🆘 · Soporte global
-> **·:?:»** Tienes un ⛑️problema y necesitas 📠ayuda.
-
-### 🏆 · Compra Exclusiva
-> **·:?:»** Comprar 🎸accesorios, 🏎️vehículos, 🕴️skins, 🔫armas VIP.
-
-### 💎 · Comprar Droids
-> **·:?:»** si quires comprar droids presiona 💰`),
-      ),
-      new ActionRowBuilder<ButtonBuilder>().addComponents(
-        new ButtonBuilder()
-          .setCustomId("tickets:DUDA")
-          .setEmoji("ℹ️")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:REPORTE_USUARIO")
-          .setEmoji("📁")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:REPORTE_STAFF")
-          .setEmoji("📋")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:REPORTE_BUG")
-          .setEmoji("🔩")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:CREADOR")
-          .setEmoji("📺")
-          .setStyle(ButtonStyle.Primary),
-      ),
-      new ActionRowBuilder<ButtonBuilder>().addComponents(
-        new ButtonBuilder()
-          .setCustomId("tickets:RECUPERACION_CUENTA")
-          .setEmoji("💾")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:APELANCION_BAN")
-          .setEmoji("📛")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:SOS")
-          .setEmoji("🆘")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:COMPRA_EXCLUSIVA")
-          .setEmoji("🏆")
-          .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-          .setCustomId("tickets:COMPRA_DROIDS")
-          .setEmoji("💎")
-          .setStyle(ButtonStyle.Primary),
-      ),
-    ];
-
     await intreaction.editReply({
-      components,
-      flags: MessageFlags.IsComponentsV2,
+      content: "Pong!",
     });
   }
 }

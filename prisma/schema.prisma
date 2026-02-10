@@ -12,6 +12,7 @@ model GuildConfig {
   guildId String @unique
 
   ticketsParentChannelId String?
+  ticketsStaffRoleId     String?
 }
 
 model Ticket {
